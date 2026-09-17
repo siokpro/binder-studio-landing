@@ -77,16 +77,17 @@ const binderAnalyticsQueue = [];
 
 function trackEvent(name, params = {}) {
   const cfg = SITE_CONFIG.ANALYTICS;
+  const payload = Object.assign({}, getUtms(), params);
   if (typeof cfg.provider === "function") {
     try {
-      cfg.provider(name, params);
+      cfg.provider(name, payload);
       return;
     } catch (err) {
       /* Un proveedor con errores nunca debe romper la web. */
     }
   }
-  binderAnalyticsQueue.push({ name, params, ts: Date.now() });
-  if (cfg.debug) console.debug("[binder-track]", name, params);
+  binderAnalyticsQueue.push({ name, params: payload, ts: Date.now() });
+  if (cfg.debug) console.debug("[binder-track]", name, payload);
 }
 
 window.binderAnalytics = { trackEvent, queue: binderAnalyticsQueue, config: SITE_CONFIG };
@@ -142,7 +143,63 @@ function injectPlayCTAs() {
   });
 }
 
+/* ============================================================
+   FASE 4 — Procedencia (UTM)
+   Lee utm_source / utm_medium / utm_campaign / utm_content de la URL,
+   los conserva durante la sesión (sessionStorage) y:
+   - los adjunta a todos los trackEvent(),
+   - los reenvía al navegar entre páginas internas (.html),
+   - los envía a Kit como campos ocultos del formulario
+     (requiere crear los custom fields en Kit, ver config más arriba).
+   Ejemplos: ?utm_source=tiktok  ?utm_source=reddit  ?utm_source=creator_nombre
+   ============================================================ */
+
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+const UTM_STORAGE_KEY = "binderUtms";
+
+function captureUtms() {
+  const params = new URLSearchParams(window.location.search);
+  const found = {};
+  UTM_KEYS.forEach(key => {
+    const value = params.get(key);
+    if (value) found[key] = value.slice(0, 120);
+  });
+  if (Object.keys(found).length) {
+    try { window.sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(found)); } catch (err) { /* sin almacenamiento */ }
+  }
+}
+
+function getUtms() {
+  try { return JSON.parse(window.sessionStorage.getItem(UTM_STORAGE_KEY)) || {}; } catch (err) { return {}; }
+}
+
+function withUtm(url) {
+  const utms = getUtms();
+  const keys = Object.keys(utms);
+  if (!keys.length) return url;
+  try {
+    const urlObj = new URL(url, window.location.href);
+    keys.forEach(key => { if (!urlObj.searchParams.has(key)) urlObj.searchParams.set(key, utms[key]); });
+    return urlObj.href;
+  } catch (err) { return url; }
+}
+
+function fillUtmInputs() {
+  document.querySelectorAll("input[data-utm-hidden]").forEach(inp => {
+    inp.value = getUtms()[inp.dataset.utmHidden] || "";
+  });
+}
+
+function rewriteInternalLinks() {
+  document.querySelectorAll('a[href*=".html"]').forEach(a => {
+    a.href = withUtm(a.href);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  captureUtms();
+  fillUtmInputs();
+  rewriteInternalLinks();
   initSocialLinks();
   injectPlayCTAs();
 });
