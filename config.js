@@ -26,11 +26,10 @@ const SITE_CONFIG = {
     uid: "bf6766a4a2",
     endpoint: "https://app.kit.com/forms/9929062/subscriptions",
     emailField: "email_address",
-    /* FASE 4 — Campos personalizados de Kit para procedencia (UTM).
-       Deben existir en Kit con EXACTAMENTE estos nombres:
-       Kit → Settings → Custom Fields → New field (tipo texto) →
-       utm_source, utm_medium, utm_campaign, utm_content
-       Mientras no existan, Kit ignora estos campos sin romper el alta. */
+    /* FASE 4/10 — Campos personalizados de Kit para procedencia (UTM).
+       Deben existir en Kit (creados ✓). Kit los recibe con el formato de su
+       HTML oficial: name="fields[nombre]" — confirmado con el HTML que genera
+       Kit para embeds con campos personalizados.                             */
     utmFields: ["utm_source", "utm_medium", "utm_campaign", "utm_content"]
   },
 

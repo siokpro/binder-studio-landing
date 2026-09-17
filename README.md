@@ -21,16 +21,17 @@ lanzamiento de Binder Studio en Google Play. Desplegada en GitHub Pages.
 - El formulario visual es propio; Kit actúa **solo como backend** (POST nativo a
   `https://app.kit.com/forms/9929062/subscriptions`, campo `email_address`).
 - No se carga ningún script de Kit.
+- Los custom fields UTM se envían con el formato oficial de Kit:
+  `name="fields[utm_source]"` etc. (Kit ignora los nombres sin corchetes).
 - Requisito pendiente en el panel de Kit (ver "Pendientes").
 
 ## Pendientes
 
-1. **Kit — redirección**: en Kit → `Forms` → formulario `9929062` → `Settings` →
-   éxito del formulario → **Redirect to URL** →
-   `https://siokpro.github.io/binder-studio-landing/gracias.html`
-2. **Kit — custom fields UTM**: crear en Kit los campos de texto
-   `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`
-   (mientras no existan, Kit los ignora y el alta funciona igual).
+1. **Kit — redirección**: ✓ configurada (gracias.html) — verificada en prueba real.
+2. **Kit — custom fields UTM**: ✓ creados; la web los envía como
+   `fields[utm_source]` etc. (verificado el 2026-09-17 con el suscriptor de
+   prueba `utm-test@binderstudio-test.com` — confirmar los 4 valores en el panel
+   y borrar los suscriptores de prueba).
 3. **Email de contacto**: sustituir `[PENDIENTE_EMAIL_CONTACTO]` en `config.js`
    (`CONTACT_EMAIL`).
 4. **Redes sociales**: pegar URLs en `SOCIAL_LINKS` (config.js).

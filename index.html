@@ -35,7 +35,7 @@
   <!-- Fase 8 — LCP: la imagen del hero y el poster del vídeo se descargan cuanto antes -->
   <link rel="preload" as="image" href="assets/water-page.webp" fetchpriority="high">
   <link rel="preload" as="image" href="assets/demo-poster.jpg">
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 </head>
 <body>
   <div class="page-shell">
@@ -246,12 +246,12 @@
               <label for="consent" data-i18n="consent_label">Quiero recibir el aviso de lanzamiento de Binder Studio.</label>
               <a class="consent-link" href="privacidad.html" data-i18n="privacy_link">Privacidad</a>
             </div>
-            <!-- Fase 4: procedencia (UTM) → se rellenan solos desde la sesión.
-                 Kit los guardará cuando existan los custom fields con el mismo nombre. -->
-            <input type="hidden" name="utm_source" data-utm-hidden="utm_source" />
-            <input type="hidden" name="utm_medium" data-utm-hidden="utm_medium" />
-            <input type="hidden" name="utm_campaign" data-utm-hidden="utm_campaign" />
-            <input type="hidden" name="utm_content" data-utm-hidden="utm_content" />
+            <!-- Fase 4/10: procedencia (UTM) → se rellenan solos desde la sesión.
+                 Kit espera los custom fields como fields[nombre] (formato de su HTML oficial). -->
+            <input type="hidden" name="fields[utm_source]" data-utm-hidden="utm_source" />
+            <input type="hidden" name="fields[utm_medium]" data-utm-hidden="utm_medium" />
+            <input type="hidden" name="fields[utm_campaign]" data-utm-hidden="utm_campaign" />
+            <input type="hidden" name="fields[utm_content]" data-utm-hidden="utm_content" />
           </form>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           <!-- Fase 3: botón de Google Play para la sección final -->
