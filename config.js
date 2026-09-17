@@ -34,6 +34,18 @@ const SITE_CONFIG = {
     utmFields: ["utm_source", "utm_medium", "utm_campaign", "utm_content"]
   },
 
+  /* ---------- FASE 3 — Google Play prerregistro ----------
+     1) Pega en PLAY_STORE_URL la URL de prerregistro cuando exista.
+     2) Cambia SHOW_PLAY_STORE_CTA a true.
+     El botón aparecerá solo: hero, sección final y gracias.html.
+     Mientras sea false no se muestra nada en ninguna página.        */
+  PLAY_STORE_URL: "",
+  SHOW_PLAY_STORE_CTA: false,
+  PLAY_LABELS: {
+    es: "Prerregistrarme en Google Play",
+    en: "Pre-register on Google Play"
+  },
+
   /* ---------- FASE 2 — Redes sociales (gracias.html) ----------
      URL vacía = el botón correspondiente no se muestra.
      Pega aquí tus perfiles cuando existan, p. ej.:
@@ -111,6 +123,26 @@ function initSocialLinks() {
   });
 }
 
+/* FASE 3 — Inyecta el botón de Google Play en todos los huecos marcados
+   con data-play-cta-slot SOLO si el interruptor y la URL están activos. */
+function injectPlayCTAs() {
+  if (!SITE_CONFIG.SHOW_PLAY_STORE_CTA || !SITE_CONFIG.PLAY_STORE_URL) return;
+  document.querySelectorAll("[data-play-cta-slot]").forEach(slot => {
+    if (slot.childElementCount > 0) return;
+    const ghost = slot.dataset.playCtaSlot === "hero";
+    const a = document.createElement("a");
+    a.className = "button " + (ghost ? "button-ghost" : "button-primary") + " button-large play-store-cta";
+    a.href = SITE_CONFIG.PLAY_STORE_URL;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.setAttribute("data-i18n", "play_cta");
+    a.textContent = (SITE_CONFIG.PLAY_LABELS && SITE_CONFIG.PLAY_LABELS[getSavedLang()])
+      || SITE_CONFIG.PLAY_LABELS.en;
+    slot.appendChild(a);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initSocialLinks();
+  injectPlayCTAs();
 });

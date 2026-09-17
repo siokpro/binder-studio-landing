@@ -301,6 +301,10 @@ body.subpage [hidden] { display: none !important; }
   .thanks-actions .button { width: 100%; }
 }
 
+/* Fase 3 — huecos del botón de Google Play: el botón inyectado se comporta
+   como hijo directo del contenedor flex/grid donde se ancle el hueco */
+.play-cta-slot { display: contents; }
+
 /* Fase 6 — enlace discreto a Privacidad junto al formulario y en el footer */
 .privacy-note a {
   color: #dbe5ff;
