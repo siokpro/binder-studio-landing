@@ -196,6 +196,18 @@ function rewriteInternalLinks() {
   });
 }
 
+/* FASE 5 — eventos de clic comunes a todas las páginas (delegación global) */
+document.addEventListener("click", (e) => {
+  const social = e.target.closest("[data-social]");
+  if (social) {
+    trackEvent(social.dataset.social + "_click");
+    return;
+  }
+  if (e.target.closest(".play-store-cta")) {
+    trackEvent("play_store_click");
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   captureUtms();
   fillUtmInputs();

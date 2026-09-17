@@ -61,8 +61,19 @@ function applyLanguage(lang) {
   });
 }
 
-document.getElementById("langToggle").addEventListener("click", () => applyLanguage(currentLang === "es" ? "en" : "es"));
+document.getElementById("langToggle").addEventListener("click", () => {
+  const from = currentLang;
+  applyLanguage(currentLang === "es" ? "en" : "es");
+  trackEvent("lang_change", { from: from, to: currentLang, page: "landing" });
+});
 applyLanguage(currentLang);
+
+/* FASE 5 — visita a la página */
+trackEvent("page_view", { page: "landing", lang: currentLang });
+
+/* FASE 5 — reproducción del vídeo (una sola vez) */
+const demoVideo = document.querySelector(".video-shell video");
+if (demoVideo) demoVideo.addEventListener("play", () => trackEvent("video_play"), { once: true });
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
