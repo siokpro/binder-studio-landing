@@ -27,18 +27,21 @@
   <meta name="twitter:image" content="https://siokpro.github.io/binder-studio-landing/assets/og-image.jpg" />
 
   <title>Binder Studio — Diseña el binder que imaginas</title>
-  <link rel="icon" href="assets/logo.png" />
-  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <link rel="icon" href="assets/logo-256.png" />
+  <link rel="apple-touch-icon" href="assets/logo-256.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Fase 8 — LCP: la imagen del hero y el poster del vídeo se descargan cuanto antes -->
+  <link rel="preload" as="image" href="assets/water-page.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/demo-poster.jpg">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header" id="top">
       <a class="brand" href="#top" aria-label="Binder Studio, inicio">
-        <img src="assets/logo.png" alt="Binder Studio" />
+        <img src="assets/logo-256.png" alt="Binder Studio" width="47" height="47" />
         <span class="brand-copy">
           <strong>Binder Studio</strong>
           <small>Tu colección. Tu diseño.</small>
@@ -89,7 +92,7 @@
               <span data-i18n="hero_visual_label">Creado con Binder Studio</span>
               <span class="tiny-pill">3×3</span>
             </div>
-            <img src="assets/water-page.webp" alt="Página de binder acuática con Pikachu, Psyduck y cartas Pokémon" />
+            <img src="assets/water-page.webp" alt="Página de binder acuática con Pikachu, Psyduck y cartas Pokémon" width="614" height="848" fetchpriority="high" />
           </div>
           <div class="floating-note note-a"><strong>21.9K</strong><span data-i18n="proof_views">visualizaciones</span></div>
           <div class="floating-note note-b"><strong>200+</strong><span data-i18n="proof_shares">compartidos</span></div>
@@ -152,10 +155,13 @@
       <section class="builder-demo section-pad navy-section">
         <div class="demo-media reveal">
           <div class="phone-frame phone-a">
-            <img src="assets/builder.png" alt="Binder Builder de Binder Studio" loading="lazy" />
+            <picture>
+              <source srcset="assets/builder.webp" type="image/webp">
+              <img src="assets/builder.png" alt="Binder Builder de Binder Studio" width="921" height="2048" loading="lazy" />
+            </picture>
           </div>
           <div class="demo-art-card">
-            <img src="assets/water-page.webp" alt="Ejemplo final de una página personalizada" loading="lazy" />
+            <img src="assets/water-page.webp" alt="Ejemplo final de una página personalizada" width="614" height="848" loading="lazy" />
           </div>
         </div>
 
@@ -186,7 +192,10 @@
         </div>
         <div class="search-media reveal delay-1">
           <div class="phone-frame phone-search">
-            <img src="assets/search.png" alt="Buscador de cartas Pokémon de Binder Studio" loading="lazy" />
+            <picture>
+              <source srcset="assets/search.webp" type="image/webp">
+              <img src="assets/search.png" alt="Buscador de cartas Pokémon de Binder Studio" width="921" height="2048" loading="lazy" />
+            </picture>
           </div>
         </div>
       </section>
@@ -197,7 +206,7 @@
           <h2 data-i18n="video_title">Así se siente Binder Studio.</h2>
         </div>
         <div class="video-shell reveal delay-1">
-          <video controls muted playsinline poster="assets/demo-poster.jpg">
+          <video controls muted playsinline preload="none" poster="assets/demo-poster.jpg" width="512" height="910">
             <source src="assets/demo.mp4" type="video/mp4" />
           </video>
         </div>
@@ -221,7 +230,7 @@
 
       <section class="waitlist section-pad" id="waitlist">
         <div class="waitlist-card reveal">
-          <div class="waitlist-logo"><img src="assets/logo.png" alt="" aria-hidden="true" /></div>
+          <div class="waitlist-logo"><img src="assets/logo-256.png" alt="" aria-hidden="true" width="68" height="68" /></div>
           <span class="section-kicker yellow" data-i18n="wait_kicker">Lanzamiento el próximo mes</span>
           <h2 data-i18n="wait_title">Sé de los primeros en construir con Binder Studio.</h2>
           <p data-i18n="wait_text">Déjanos tu email. Te avisaremos en cuanto Binder Studio esté disponible en Google Play.</p>
@@ -254,7 +263,7 @@
 
     <footer class="site-footer">
       <div class="footer-brand">
-        <img src="assets/logo.png" alt="Binder Studio" />
+        <img src="assets/logo-256.png" alt="Binder Studio" width="44" height="44" />
         <div><strong>Binder Studio</strong><span data-i18n="footer_tagline">Organiza. Diseña. Comparte.</span></div>
       </div>
       <p class="footer-disclaimer"><span data-i18n="footer_disclaimer">Binder Studio es una herramienta independiente creada para coleccionistas. No está afiliada, patrocinada ni respaldada por The Pokémon Company, Nintendo, Game Freak o Creatures Inc.</span> <a href="privacidad.html" data-i18n="privacy_link">Privacidad</a></p>
