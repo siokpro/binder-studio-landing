@@ -34,6 +34,16 @@ const SITE_CONFIG = {
     utmFields: ["utm_source", "utm_medium", "utm_campaign", "utm_content"]
   },
 
+  /* ---------- FASE 2 — Redes sociales (gracias.html) ----------
+     URL vacía = el botón correspondiente no se muestra.
+     Pega aquí tus perfiles cuando existan, p. ej.:
+     tiktok: "https://www.tiktok.com/@binderstudio"                */
+  SOCIAL_LINKS: {
+    tiktok: "",
+    instagram: "",
+    youtube: ""
+  },
+
   /* ---------- FASE 5 — Analítica respetuosa con la privacidad ----------
      Sin proveedor conectado: trackEvent() no envía nada y no falla.
      Cuando elijas proveedor (p. ej. Plausible, sin cookies), cambia
@@ -68,3 +78,39 @@ function trackEvent(name, params = {}) {
 }
 
 window.binderAnalytics = { trackEvent, queue: binderAnalyticsQueue, config: SITE_CONFIG };
+
+/* ============================================================
+   FASE 2 — Idioma y redes sociales (compartido por todas las páginas)
+   ============================================================ */
+
+function getSavedLang() {
+  let lang = null;
+  try { lang = localStorage.getItem("binderStudioLang"); } catch (err) { /* almacenamiento no disponible */ }
+  return lang || (navigator.language && navigator.language.toLowerCase().startsWith("es") ? "es" : "en");
+}
+
+function applyI18n(lang, dict) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (dict[lang] && dict[lang][key]) el.textContent = dict[lang][key];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (dict[lang] && dict[lang][key]) el.innerHTML = dict[lang][key];
+  });
+}
+
+function initSocialLinks() {
+  document.querySelectorAll("[data-social]").forEach(a => {
+    const url = SITE_CONFIG.SOCIAL_LINKS[a.dataset.social];
+    if (url) {
+      a.href = url;
+      a.hidden = false;
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initSocialLinks();
+});

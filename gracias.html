@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d172a" />
+  <meta name="description" content="¡Ya estás dentro! Te avisaremos en cuanto Binder Studio esté disponible en Google Play." />
+  <meta name="robots" content="noindex, follow" />
+  <meta property="og:title" content="Binder Studio — ¡Ya estás dentro!" />
+  <meta property="og:description" content="Te avisaremos en cuanto Binder Studio esté disponible en Google Play." />
+  <meta property="og:type" content="website" />
+  <title>Binder Studio — ¡Ya estás dentro!</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="subpage">
+  <div class="page-shell">
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html" aria-label="Binder Studio, inicio">
+        <img src="assets/logo.png" alt="Binder Studio" width="47" height="47" />
+        <span class="brand-copy">
+          <strong>Binder Studio</strong>
+          <small>Tu colección. Tu diseño.</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Cambiar idioma">EN</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="waitlist section-pad">
+        <div class="waitlist-card thanks-card">
+          <div class="waitlist-logo"><img src="assets/logo.png" alt="" aria-hidden="true" width="68" height="68" /></div>
+          <span class="section-kicker yellow" data-i18n="thanks_kicker">Registro confirmado</span>
+          <h1 data-i18n="thanks_title">¡Ya estás dentro!</h1>
+          <p data-i18n="thanks_text">Te avisaremos en cuanto Binder Studio esté disponible en Google Play.</p>
+          <p data-i18n="thanks_text2">Mientras tanto puedes conocer mejor la aplicación y seguir el proyecto.</p>
+
+          <div class="thanks-actions">
+            <a class="button button-ghost button-large" href="index.html" data-i18n="thanks_back">Volver a la web</a>
+            <a class="button button-primary button-large" href="index.html#how" data-i18n="thanks_know">Conocer la aplicación</a>
+          </div>
+
+          <!-- Fase 3: el botón de Google Play aparece aquí cuando
+               SHOW_PLAY_STORE_CTA = true y existe PLAY_STORE_URL en config.js -->
+          <div class="play-cta-slot" data-play-cta-slot="thanks"></div>
+
+          <p class="thanks-follow" id="thanksFollow" hidden data-i18n="thanks_follow">Sigue el proyecto aquí:</p>
+          <div class="social-row" id="socialRow">
+            <a class="social-btn" data-social="tiktok" href="#" target="_blank" rel="noopener" hidden>TikTok</a>
+            <a class="social-btn" data-social="instagram" href="#" target="_blank" rel="noopener" hidden>Instagram</a>
+            <a class="social-btn" data-social="youtube" href="#" target="_blank" rel="noopener" hidden>YouTube</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Binder Studio" width="44" height="44" />
+        <div><strong>Binder Studio</strong><span data-i18n="footer_tagline">Organiza. Diseña. Comparte.</span></div>
+      </div>
+      <p><span data-i18n="footer_disclaimer">Binder Studio es una herramienta independiente creada para coleccionistas. No está afiliada, patrocinada ni respaldada por The Pokémon Company, Nintendo, Game Freak o Creatures Inc.</span></p>
+      <p class="footer-copy">© 2026 Binder Studio.</p>
+    </footer>
+  </div>
+
+  <script src="config.js" defer></script>
+  <script src="thanks.js" defer></script>
+</body>
+</html>

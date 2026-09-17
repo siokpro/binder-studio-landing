@@ -275,6 +275,32 @@ button { cursor: pointer; }
   cursor: pointer;
 }
 
+/* Fase 2 — página de gracias (reutiliza .waitlist-card y .site-header aprobados) */
+body.subpage .header-actions { margin-left: auto; }
+body.subpage [hidden] { display: none !important; }
+.waitlist-card h1 {
+  margin: 13px 0 16px; color: #fff; max-width: 760px; margin-left: auto; margin-right: auto;
+  font-size: clamp(34px, 4.8vw, 58px); letter-spacing: -.055em; line-height: 1.02;
+}
+.thanks-card p + p { margin-top: 10px; }
+.thanks-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 30px; }
+.waitlist-card .thanks-follow {
+  margin: 30px auto 0; color: #aebfe8; font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .09em;
+}
+.social-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 14px; }
+.social-btn {
+  padding: 12px 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,.4);
+  background: rgba(255,255,255,.06); color: #fff; font-size: 13px; font-weight: 800;
+  transition: transform .2s ease, background .2s ease;
+}
+.social-btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.14); }
+
+@media (max-width: 680px) {
+  .thanks-actions { flex-direction: column; }
+  .thanks-actions .button { width: 100%; }
+}
+
 /* Fase 6 — enlace discreto a Privacidad junto al formulario y en el footer */
 .privacy-note a {
   color: #dbe5ff;
