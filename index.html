@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d172a" />
+  <meta name="description" content="Binder Studio: diseña tus páginas de binder, encuentra cartas Pokémon, crea placeholders e integra tus propios artes. Todas las funciones gratis." />
+  <meta property="og:title" content="Binder Studio — Diseña el binder que imaginas" />
+  <meta property="og:description" content="Busca cartas, crea páginas personalizadas, divide tus propios artes y exporta placeholders. Todas las funciones gratis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/feature.png" />
+  <title>Binder Studio — Diseña el binder que imaginas</title>
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Binder Studio, inicio">
+        <img src="assets/logo.png" alt="Binder Studio" />
+        <span class="brand-copy">
+          <strong>Binder Studio</strong>
+          <small>Tu colección. Tu diseño.</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#builder" data-i18n="nav_builder">Binder Builder</a>
+        <a href="#cards" data-i18n="nav_cards">Cartas</a>
+        <a href="#pokedex" data-i18n="nav_pokedex">Pokédex</a>
+        <a href="#free" data-i18n="nav_free">100% gratis</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Cambiar idioma">EN</button>
+        <a class="button button-small button-primary" href="#waitlist" data-i18n="nav_cta">Avísame al lanzamiento</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section-pad">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse-dot"></span><span data-i18n="hero_eyebrow">Próximamente en Android</span></div>
+          <h1 data-i18n-html="hero_title">Diseña el binder que <span>imaginas.</span></h1>
+          <p class="hero-lead" data-i18n="hero_lead">Busca cartas, construye páginas completas, mezcla tus propios artes y prepara placeholders a tamaño real. Todo desde una sola app.</p>
+
+          <div class="hero-points">
+            <span><b>✓</b> <span data-i18n="hero_point1">Todas las funciones gratis</span></span>
+            <span><b>✓</b> <span data-i18n="hero_point2">Sin suscripción</span></span>
+            <span><b>✓</b> <span data-i18n="hero_point3">Pago único opcional para quitar anuncios</span></span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button button-primary button-large" href="#waitlist" data-i18n="hero_cta">Quiero enterarme el primero</a>
+            <a class="button button-ghost button-large" href="#how" data-i18n="hero_secondary">Ver cómo funciona</a>
+          </div>
+
+          <p class="microcopy" data-i18n="hero_micro">Deja tu email y te avisaremos cuando Binder Studio esté disponible en Google Play.</p>
+        </div>
+
+        <div class="hero-visual reveal delay-1">
+          <div class="glow glow-yellow"></div>
+          <div class="glow glow-blue"></div>
+          <div class="hero-card">
+            <div class="hero-card-topline">
+              <span data-i18n="hero_visual_label">Creado con Binder Studio</span>
+              <span class="tiny-pill">3×3</span>
+            </div>
+            <img src="assets/water-page.webp" alt="Página de binder acuática con Pikachu, Psyduck y cartas Pokémon" />
+          </div>
+          <div class="floating-note note-a"><strong>21.9K</strong><span data-i18n="proof_views">visualizaciones</span></div>
+          <div class="floating-note note-b"><strong>200+</strong><span data-i18n="proof_shares">compartidos</span></div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Características principales">
+        <div><strong>2×2 · 3×3 · 4×3 · 4×4</strong><span data-i18n="strip_formats">Formatos de binder</span></div>
+        <div><strong>2.264</strong><span data-i18n="strip_pokedex">Pokémon en Pokédex</span></div>
+        <div><strong>PDF + PNG</strong><span data-i18n="strip_export">Exportación</span></div>
+        <div><strong>100%</strong><span data-i18n="strip_free">Funciones gratuitas</span></div>
+      </section>
+
+      <section class="showcase section-pad" id="how">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker" data-i18n="how_kicker">Tres herramientas. Un solo flujo.</span>
+          <h2 data-i18n="how_title">De la idea al binder físico.</h2>
+          <p data-i18n="how_lead">Binder Studio no es solo un buscador de cartas. Está pensado para ayudarte a imaginar, construir y completar tu colección.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal" id="cards">
+            <div class="feature-number">01</div>
+            <div class="feature-icon cards-icon">▰</div>
+            <h3 data-i18n="cards_title">Encuentra cualquier carta</h3>
+            <p data-i18n="cards_text">Busca por Pokémon o abre un set completo. Selecciona una carta, varias o las que te faltan y mándalas al Binder Builder.</p>
+            <ul>
+              <li data-i18n="cards_li1">Búsqueda por Pokémon</li>
+              <li data-i18n="cards_li2">Exploración por sets</li>
+              <li data-i18n="cards_li3">Datos actualizados mediante API</li>
+            </ul>
+          </article>
+
+          <article class="feature-card featured reveal delay-1" id="builder">
+            <div class="feature-number">02</div>
+            <div class="feature-icon builder-icon">✦</div>
+            <h3 data-i18n="builder_title">Construye páginas únicas</h3>
+            <p data-i18n="builder_text">Combina cartas e imágenes de tu galería. Divide un artwork entre varios huecos y crea composiciones continuas imposibles de planificar a mano.</p>
+            <ul>
+              <li data-i18n="builder_li1">Binders multipágina</li>
+              <li data-i18n="builder_li2">2×2, 3×3, 4×3 y 4×4</li>
+              <li data-i18n="builder_li3">Artwork dividido entre slots</li>
+            </ul>
+          </article>
+
+          <article class="feature-card reveal delay-2" id="pokedex">
+            <div class="feature-number">03</div>
+            <div class="feature-icon pokedex-icon">◉</div>
+            <h3 data-i18n="pokedex_title">Crea tu propia Pokédex</h3>
+            <p data-i18n="pokedex_text">Explora 2.264 Pokémon, filtra por región o tipo y prepara selecciones completas para imprimirlas como placeholders.</p>
+            <ul>
+              <li data-i18n="pokedex_li1">Filtros por región y tipo</li>
+              <li data-i18n="pokedex_li2">Selección parcial o completa</li>
+              <li data-i18n="pokedex_li3">Exportación a tamaño carta</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="builder-demo section-pad navy-section">
+        <div class="demo-media reveal">
+          <div class="phone-frame phone-a">
+            <img src="assets/builder.png" alt="Binder Builder de Binder Studio" loading="lazy" />
+          </div>
+          <div class="demo-art-card">
+            <img src="assets/water-page.webp" alt="Ejemplo final de una página personalizada" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="demo-copy reveal delay-1">
+          <span class="section-kicker yellow" data-i18n="builder_kicker">La joya de la corona</span>
+          <h2 data-i18n-html="builder_big_title">No organices huecos.<br>Diseña páginas.</h2>
+          <p data-i18n="builder_big_text">Carga una imagen propia, colócala en un hueco y divídela para continuarla por los slots contiguos. Después mezcla el artwork con tus cartas y crea tantas páginas como quieras.</p>
+          <div class="step-list">
+            <div><span>1</span><p data-i18n="step1">Elige el formato de tu binder.</p></div>
+            <div><span>2</span><p data-i18n="step2">Añade cartas o imágenes propias.</p></div>
+            <div><span>3</span><p data-i18n="step3">Divide, recoloca y prueba combinaciones.</p></div>
+            <div><span>4</span><p data-i18n="step4">Exporta tu resultado en PNG o PDF.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="search-demo section-pad">
+        <div class="search-copy reveal">
+          <span class="section-kicker" data-i18n="search_kicker">Placeholder en segundos</span>
+          <h2 data-i18n="search_title">¿Te falta una carta? Reserva su sitio.</h2>
+          <p data-i18n="search_text">Selecciona las cartas que aún no tienes y expórtalas a PDF a tamaño real. Imprímelas y sabrás exactamente qué falta en cada hueco de tu colección.</p>
+          <div class="tag-cloud">
+            <span data-i18n="tag_master">Master sets</span>
+            <span data-i18n="tag_missing">Cartas faltantes</span>
+            <span data-i18n="tag_print">Tamaño real</span>
+            <span data-i18n="tag_pdf">PDF listo para imprimir</span>
+          </div>
+        </div>
+        <div class="search-media reveal delay-1">
+          <div class="phone-frame phone-search">
+            <img src="assets/search.png" alt="Buscador de cartas Pokémon de Binder Studio" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <section class="video-section section-pad">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker" data-i18n="video_kicker">Míralo en movimiento</span>
+          <h2 data-i18n="video_title">Así se siente Binder Studio.</h2>
+        </div>
+        <div class="video-shell reveal delay-1">
+          <video controls muted playsinline poster="assets/demo-poster.jpg">
+            <source src="assets/demo.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+
+      <section class="free-section section-pad" id="free">
+        <div class="free-card reveal">
+          <div class="free-badge">100%</div>
+          <div class="free-copy">
+            <span class="section-kicker yellow" data-i18n="free_kicker">Sin letra pequeña</span>
+            <h2 data-i18n="free_title">Todas las funciones son gratis.</h2>
+            <p data-i18n="free_text">No hay funciones premium, límites artificiales ni suscripción. La app incluye un banner y un anuncio al exportar. Si quieres eliminarlos, existe una compra única opcional.</p>
+            <div class="free-comparison">
+              <div><strong data-i18n="free_left_title">Gratis</strong><span data-i18n="free_left_text">La app completa</span></div>
+              <div class="divider">+</div>
+              <div><strong data-i18n="free_right_title">Pago único opcional</strong><span data-i18n="free_right_text">Solo elimina anuncios</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="waitlist section-pad" id="waitlist">
+        <div class="waitlist-card reveal">
+          <div class="waitlist-logo"><img src="assets/logo.png" alt="" aria-hidden="true" /></div>
+          <span class="section-kicker yellow" data-i18n="wait_kicker">Lanzamiento el próximo mes</span>
+          <h2 data-i18n="wait_title">Sé de los primeros en construir con Binder Studio.</h2>
+          <p data-i18n="wait_text">Déjanos tu email. Te avisaremos en cuanto Binder Studio esté disponible en Google Play.</p>
+
+          <form class="signup-form" id="signupForm" novalidate>
+            <label class="sr-only" for="email" data-i18n="email_label">Tu email</label>
+            <input id="email" type="email" name="email" autocomplete="email" placeholder="tu@email.com" required />
+            <button class="button button-primary" type="submit" data-i18n="wait_cta">Avísame al lanzamiento</button>
+          </form>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="privacy-note" data-i18n="privacy">Nada de spam. Solo información importante sobre el lanzamiento. Podrás darte de baja cuando quieras.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Binder Studio" />
+        <div><strong>Binder Studio</strong><span data-i18n="footer_tagline">Organiza. Diseña. Comparte.</span></div>
+      </div>
+      <p data-i18n="footer_disclaimer">Binder Studio es una herramienta independiente creada para coleccionistas. No está afiliada, patrocinada ni respaldada por The Pokémon Company, Nintendo, Game Freak o Creatures Inc.</p>
+      <p class="footer-copy">© 2026 Binder Studio.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
