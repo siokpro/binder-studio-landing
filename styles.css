@@ -260,6 +260,16 @@ button { cursor: pointer; }
   text-align: left;
   padding: 2px 6px 0;
 }
+/* La regla de móvil .signup-form input { min-height:54px } no debe afectar a la casilla */
+.signup-form input[type="checkbox"] {
+  min-height: 0;
+  height: 16px;
+  width: 16px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+}
 .consent-row input[type="checkbox"] {
   width: 16px;
   height: 16px;

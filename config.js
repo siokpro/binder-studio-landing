@@ -157,6 +157,16 @@ function injectPlayCTAs() {
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
 const UTM_STORAGE_KEY = "binderUtms";
 
+function readUtms() {
+  try { return JSON.parse(window.sessionStorage.getItem(UTM_STORAGE_KEY)) || null; }
+  catch (err) { return null; }
+}
+
+function writeUtms(utms) {
+  try { window.sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(utms)); } catch (err) { /* sin almacenamiento */ }
+  try { window.localStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(utms)); } catch (err) { /* sin almacenamiento */ }
+}
+
 function captureUtms() {
   const params = new URLSearchParams(window.location.search);
   const found = {};
@@ -164,13 +174,13 @@ function captureUtms() {
     const value = params.get(key);
     if (value) found[key] = value.slice(0, 120);
   });
-  if (Object.keys(found).length) {
-    try { window.sessionStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(found)); } catch (err) { /* sin almacenamiento */ }
-  }
+  if (Object.keys(found).length) writeUtms(found);
 }
 
 function getUtms() {
-  try { return JSON.parse(window.sessionStorage.getItem(UTM_STORAGE_KEY)) || {}; } catch (err) { return {}; }
+  const fromSession = readUtms();
+  if (fromSession) return fromSession;
+  try { return JSON.parse(window.localStorage.getItem(UTM_STORAGE_KEY)) || {}; } catch (err) { return {}; }
 }
 
 function withUtm(url) {
@@ -207,6 +217,10 @@ document.addEventListener("click", (e) => {
     trackEvent("play_store_click");
   }
 });
+
+/* Captura inmediata: así los eventos que se disparan al cargar la página
+   (page_view) ya llevan la procedencia adjunta. */
+captureUtms();
 
 document.addEventListener("DOMContentLoaded", () => {
   captureUtms();
