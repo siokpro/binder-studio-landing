@@ -13,6 +13,7 @@ const thanksTranslations = {
     thanks_know: "Conocer la aplicación",
     thanks_follow: "Sigue el proyecto aquí:",
     play_cta: "Prerregistrarme en Google Play",
+    privacy_link: "Privacidad",
     footer_tagline: "Organiza. Diseña. Comparte.",
     footer_disclaimer: "Binder Studio es una herramienta independiente creada para coleccionistas. No está afiliada, patrocinada ni respaldada por The Pokémon Company, Nintendo, Game Freak o Creatures Inc."
   },
@@ -25,6 +26,7 @@ const thanksTranslations = {
     thanks_know: "Explore the app",
     thanks_follow: "Follow the project here:",
     play_cta: "Pre-register on Google Play",
+    privacy_link: "Privacy",
     footer_tagline: "Organize. Design. Share.",
     footer_disclaimer: "Binder Studio is an independent tool made for collectors. It is not affiliated with, sponsored by or endorsed by The Pokémon Company, Nintendo, Game Freak or Creatures Inc."
   }

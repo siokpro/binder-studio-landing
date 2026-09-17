@@ -18,7 +18,7 @@ const translations = {
     free_kicker: "Sin letra pequeña", free_title: "Todas las funciones son gratis.", free_text: "No hay funciones premium, límites artificiales ni suscripción. La app incluye un banner y un anuncio al exportar. Si quieres eliminarlos, existe una compra única opcional.", free_left_title: "Gratis", free_left_text: "La app completa", free_right_title: "Pago único opcional", free_right_text: "Solo elimina anuncios",
     wait_kicker: "Lanzamiento el próximo mes", wait_title: "Sé de los primeros en construir con Binder Studio.", wait_text: "Déjanos tu email. Te avisaremos en cuanto Binder Studio esté disponible en Google Play.", email_label: "Tu email", wait_cta: "Avísame cuando Binder Studio esté disponible.", consent_label: "Quiero recibir el aviso de lanzamiento de Binder Studio.", privacy: "Nada de spam. Solo información importante sobre el lanzamiento. Podrás darte de baja cuando quieras.",
     footer_tagline: "Organiza. Diseña. Comparte.", footer_disclaimer: "Binder Studio es una herramienta independiente creada para coleccionistas. No está afiliada, patrocinada ni respaldada por The Pokémon Company, Nintendo, Game Freak o Creatures Inc.",
-    form_invalid: "Introduce un email válido.", form_consent_invalid: "Marca la casilla para poder avisarte.", play_cta: "Prerregistrarme en Google Play"
+    form_invalid: "Introduce un email válido.", form_consent_invalid: "Marca la casilla para poder avisarte.", play_cta: "Prerregistrarme en Google Play", privacy_link: "Privacidad"
   },
   en: {
     nav_builder: "Binder Builder", nav_cards: "Cards", nav_pokedex: "Pokédex", nav_free: "100% free", nav_cta: "Notify me at launch",
@@ -39,7 +39,7 @@ const translations = {
     free_kicker: "No fine print", free_title: "Every feature is free.", free_text: "No premium tools, artificial limits or subscription. The app has a banner ad and an ad when you export. An optional one-time purchase removes advertising permanently.", free_left_title: "Free", free_left_text: "The complete app", free_right_title: "Optional one-time purchase", free_right_text: "Only removes ads",
     wait_kicker: "Launching next month", wait_title: "Be one of the first to build with Binder Studio.", wait_text: "Leave your email. We’ll notify you the moment Binder Studio becomes available on Google Play.", email_label: "Your email", wait_cta: "Notify me when Binder Studio launches.", consent_label: "I agree to receive the Binder Studio launch notice.", privacy: "No spam. Only important launch updates. Unsubscribe anytime.",
     footer_tagline: "Organize. Design. Share.", footer_disclaimer: "Binder Studio is an independent tool made for collectors. It is not affiliated with, sponsored by or endorsed by The Pokémon Company, Nintendo, Game Freak or Creatures Inc.",
-    form_invalid: "Enter a valid email address.", form_consent_invalid: "Please tick the consent box so we can notify you.", play_cta: "Pre-register on Google Play"
+    form_invalid: "Enter a valid email address.", form_consent_invalid: "Please tick the consent box so we can notify you.", play_cta: "Pre-register on Google Play", privacy_link: "Privacy"
   }
 };
 
