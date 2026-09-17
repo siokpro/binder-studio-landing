@@ -206,10 +206,16 @@
           <h2 data-i18n="wait_title">Sé de los primeros en construir con Binder Studio.</h2>
           <p data-i18n="wait_text">Déjanos tu email. Te avisaremos en cuanto Binder Studio esté disponible en Google Play.</p>
 
-          <form class="signup-form" id="signupForm" novalidate>
+          <!-- Kit solo actúa como backend: action + method + name del email.
+               La redirección a gracias.html se configura en el panel de Kit. -->
+          <form class="signup-form" id="signupForm" action="https://app.kit.com/forms/9929062/subscriptions" method="post" novalidate>
             <label class="sr-only" for="email" data-i18n="email_label">Tu email</label>
-            <input id="email" type="email" name="email" autocomplete="email" placeholder="tu@email.com" required />
-            <button class="button button-primary" type="submit" data-i18n="wait_cta">Avísame al lanzamiento</button>
+            <input id="email" type="email" name="email_address" autocomplete="email" placeholder="tu@email.com" required />
+            <button class="button button-primary" type="submit" data-i18n="wait_cta">Avísame cuando Binder Studio esté disponible.</button>
+            <div class="consent-row">
+              <input id="consent" name="consent_launch" type="checkbox" value="yes" required />
+              <label for="consent" data-i18n="consent_label">Quiero recibir el aviso de lanzamiento de Binder Studio.</label>
+            </div>
           </form>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           <p class="privacy-note" data-i18n="privacy">Nada de spam. Solo información importante sobre el lanzamiento. Podrás darte de baja cuando quieras.</p>
@@ -227,6 +233,7 @@
     </footer>
   </div>
 
-  <script src="script.js"></script>
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
